@@ -61,4 +61,9 @@ public class Student implements Serializable {
     public void setDtb(float dtb) {
         this.dtb = dtb;
     }
+
+    public String toString(){
+        String result="List Student: ";
+        return result;
+    }
 }

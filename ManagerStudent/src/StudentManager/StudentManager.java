@@ -30,8 +30,12 @@ public class StudentManager {
         float dtb = inputDtb();
         Student student = new Student(id, mssv, name, sex, dtb);
         studentList.add(student);
-        StudentDAO.writeFile(studentList);
-
+        boolean result = StudentDAO.writeFile(studentList);
+        if (result) {
+            System.out.println("Add success");
+        } else {
+            System.out.println("Add fail");
+        }
 
     }
 
@@ -45,8 +49,8 @@ public class StudentManager {
         //lấy hs ở vị trí i từ get()
         for (Student student : studentList)
             if (student.getMssv() == mssv) {
+                System.out.println(student);
                 isExixted = true;
-                student.setMssv(inputMssv());
                 student.setName(inputName());
                 student.setSex(inputSex());
                 student.setDtb(inputDtb());
@@ -55,7 +59,12 @@ public class StudentManager {
         if (!isExixted) {
             System.out.printf("Mssv = %d not existed.\n", mssv);
         } else {
-            StudentDAO.writeFile(studentList);
+            boolean result = StudentDAO.writeFile(studentList);
+            if (result) {
+                System.out.println("Edit success");
+            } else {
+                System.out.println("Edit fail");
+            }
         }
     }
 
@@ -74,12 +83,34 @@ public class StudentManager {
         }
         if (student != null) {
             studentList.remove(student);
-            StudentDAO.writeFile(studentList);
+            boolean result = StudentDAO.writeFile(studentList);
+            if (result) {
+                System.out.println("Delete success");
+            } else {
+                System.out.println("Delete fail");
+            }
         } else {
             System.out.printf("id = %d not existed.\n", mssv);
         }
     }
 
+    /*
+     * find student by mssv
+     * @param id: student mssv
+     */
+    public void find(int mssv) {
+        boolean isExixted = false;
+
+        for (Student student : studentList) {
+            if (student.getMssv() == mssv) {
+                isExixted = true;
+                System.out.println(student);
+            }
+        }
+        if (!isExixted) {
+            System.out.println("Not find student!");
+        }
+    }
 
     public void show() {
         System.out.format(

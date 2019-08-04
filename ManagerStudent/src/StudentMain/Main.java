@@ -29,7 +29,8 @@ public class Main {
                     studentManager.delete(studentMssv);
                     break;
                 case "4":
-                    //studentManager.findStudentByMssv();
+                    studentMssv = studentManager.inputMssv();
+                    studentManager.find(studentMssv);
                     break;
                 case "5":
                     //studentManager.sortStudentById();

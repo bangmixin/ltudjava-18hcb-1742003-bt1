@@ -62,8 +62,13 @@ public class Student implements Serializable {
         this.dtb = dtb;
     }
 
-    public String toString(){
-        String result="List Student: ";
+    public String toString() {
+        String result = "Info Student:" +
+                "\nStt: " + this.getId() +
+                "\nMssv: " + this.getMssv() +
+                "\nName: " + this.getName() +
+                "\nSex: " + this.getSex() +
+                "\nDtb: " + this.getDtb();
         return result;
     }
 }

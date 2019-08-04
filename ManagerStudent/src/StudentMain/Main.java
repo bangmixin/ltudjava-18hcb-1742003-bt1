@@ -15,6 +15,7 @@ public class Main {
         int studentId, studentMssv;
         showMenu();
         while (true) {
+            System.out.printf("Chọn số: ");
             choose = scan.nextLine();
             switch (choose) {
                 case "1":
@@ -33,16 +34,16 @@ public class Main {
                     studentManager.find(studentMssv);
                     break;
                 case "5":
-                    //studentManager.sortStudentById();
+                    studentManager.sortStudentById();
                     break;
                 case "6":
-                    //studentManager.sortStudentByMssv();
+                    studentManager.sortStudentByMssv();
                     break;
                 case "7":
-                    //studentManager.sortStudentByDtb();
+                    studentManager.sortStudentByDtb();
                     break;
                 case "8":
-                    //studentManager.sortStudentByName();
+                    studentManager.sortStudentByName();
                     break;
                 case "9":
                     studentManager.show();

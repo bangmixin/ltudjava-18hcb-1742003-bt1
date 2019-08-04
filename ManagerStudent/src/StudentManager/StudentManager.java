@@ -2,6 +2,10 @@ package StudentManager;
 
 import Student.Student;
 import StudentDAO.StudentDAO;
+import StudentSort.StudentSortByDtb;
+import StudentSort.StudentSortById;
+import StudentSort.StudentSortByMssv;
+import StudentSort.StudentSortByName;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -110,6 +114,39 @@ public class StudentManager {
         if (!isExixted) {
             System.out.println("Not find student!");
         }
+    }
+
+    /*
+     * sort student by name
+     */
+    public void sortStudentById() {
+        studentList.sort(new StudentSortById());
+        show();
+    }
+    /*
+     * sort student by name
+     */
+    public void sortStudentByName() {
+        studentList.sort(new StudentSortByName());
+        show();
+    }
+
+    /*
+     * sort student by mssv
+     */
+    public void sortStudentByMssv() {
+
+        studentList.sort(new StudentSortByMssv());
+        show();
+    }
+
+    /*
+     * sort student by dtb
+     */
+    public void sortStudentByDtb() {
+
+        studentList.sort(new StudentSortByDtb());
+        show();
     }
 
     public void show() {
